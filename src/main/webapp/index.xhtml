@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/jsf/html http://java.sun.com/jsf/html/facelets.xsd">
+
+<head>
+    <title>Student Details</title>
+</head>
+
+<h:body>
+    <h1>Student Details</h1>
+
+    <h:panelGrid columns="2">
+        <h:outputText value="Student Name:" />
+        <h:outputText value="#{studentBean.student.name}" />
+
+        <h:outputText value="Student Email:" />
+        <h:outputText value="#{studentBean.email.emailAddress}" />
+
+        <h:outputText value="Module Name:" />
+        <h:outputText value="#{studentBean.module.moduleName}" />
+
+        <h:outputText value="Students in Module:" />
+
+        <!-- Utilisation correcte de ui:repeat pour itérer sur la liste d'étudiants -->
+        <h:panelGroup>
+            <ui:repeat value="#{studentBean.module.students}" var="s">
+                <h:outputText value="#{s.name}" />
+                <br />
+            </ui:repeat>
+        </h:panelGroup>
+    </h:panelGrid>
+</h:body>
+
+</html>
