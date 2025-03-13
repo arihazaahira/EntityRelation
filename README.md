@@ -7,6 +7,7 @@ Ce projet illustre l'utilisation de JPA (Java Persistence API) pour gérer des r
 Ce projet a pour but de démontrer les concepts de base de JPA, notamment :
 
 * Relations One-to-One (étudiant-adresse, étudiant-email)
+* Relation One-to-Many (module-étudiants)
 * Relation Many-to-Many (étudiant-module)
 * Utilisation de requêtes JPA pour récupérer des données liées
 * Insertion et récupération de données à partir d'une base de données MySQL
@@ -66,12 +67,13 @@ Ce projet a pour but de démontrer les concepts de base de JPA, notamment :
 * `Student`: Représente un étudiant avec un nom, une adresse et un email.
 * `Adresse`: Représente une adresse avec une rue et une ville.
 * `Email`: Représente une adresse email.
-* `Module`: Représente un module avec un nom.
+* `Module`: Représente un module avec un nom et une liste d'étudiants inscrits.
 
 ## Relations
 
 * `Student` One-to-One `Adresse`
 * `Student` One-to-One `Email` (bidirectionnelle)
+* `Module` One-to-Many `Student` 
 * `Student` Many-to-Many `Module` (unidirectionnelle, `Student` est le propriétaire)
 
 ## Requêtes JPA
@@ -82,6 +84,8 @@ Le code `Main.java` contient des exemples de requêtes JPA pour :
 * Récupérer les étudiants inscrits à un module
 * Récupérer les modules auxquels un étudiant est inscrit
 * Récupérer un étudiant à partir d'un email
+* Récupérer l'email d'un étudiant
+* Récupérer un étudiant à partir d'un module
 
 ## Commandes SQL pour insérer des données
 
